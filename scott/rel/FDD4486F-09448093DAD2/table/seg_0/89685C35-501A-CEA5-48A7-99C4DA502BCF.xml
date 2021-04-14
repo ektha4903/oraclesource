@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="89685C35-501A-CEA5-48A7-99C4DA502BCF" schemaObject="F2CA2F30-5997-E193-1F48-9537CF6E4D4D" name="COUNTRIES">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>COUNTRIES</sourceObjName>
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[country table. Contains 25 rows. References with locations table.]]></commentInRDBMS>
+<ownerDesignName>scott</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="COUNTRY_ID" id="05D049C3-86C5-37E9-75AE-0C4C565F75AD">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>COUNTRIES</sourceObjSchema>
+<sourceObjName>COUNTRY_ID</sourceObjName>
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Primary key of countries table.]]></commentInRDBMS>
+<ownerDesignName>scott</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>2 BYTE</dataTypeSize>
+<ownDataTypeParameters>2 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>COUNTRY_ID_NN</notNullConstraintName>
+</Column>
+<Column name="COUNTRY_NAME" id="15C44D35-7997-B74C-2EE1-70472EC64164">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>COUNTRIES</sourceObjSchema>
+<sourceObjName>COUNTRY_NAME</sourceObjName>
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Country name]]></commentInRDBMS>
+<ownerDesignName>scott</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="REGION_ID" id="F240705F-A27F-CA90-082D-5F480B2EA811">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>COUNTRIES</sourceObjSchema>
+<sourceObjName>REGION_ID</sourceObjName>
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[Region ID for the country. Foreign key to region_id column in the departments table.]]></commentInRDBMS>
+<ownerDesignName>scott</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FE0B6FD3-8335-D961-2E6A-6A33E120D3F0" referredColumn="1EE12054-1DE2-3F78-BEB0-E8F6145C3F77"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D90BDDB8-48B9-C428-8450-C47B71699C5E" schemaObject="F2CA2F30-5997-E193-1F48-9537CF6E4D4D" name="COUNTRY_C_ID_PK">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>COUNTRY_C_ID_PK</sourceObjName>
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:56 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="05D049C3-86C5-37E9-75AE-0C4C565F75AD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="492DD65E-1225-6C0B-722A-91E7F87CC7A2" name="COUNTR_REG_FK">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:56 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F240705F-A27F-CA90-082D-5F480B2EA811"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="DEPARTMENTS" directorySegmentName="seg_0" id="828A5424-84E9-475B-EAD1-51D9C8380E26">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:55 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<schemaObject>F2CA2F30-5997-E193-1F48-9537CF6E4D4D</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>07DCA8C9-5B0C-5C3F-2422-98045669C246</segment>
+<tableSpace>11EBCE7E-23C5-3010-82F1-371EBCA3976C</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="LOCATION_ID" id="935A4D53-F147-D5D2-2D94-7C071DF27FDD">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:55 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MANAGER_ID" id="AB5306B0-C8ED-C58B-F338-48FE7389C137">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:55 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEPARTMENT_NAME" id="CDA2D65A-CA9A-A43B-8E04-39F3EA892D34">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:55 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEPARTMENT_ID" id="EAC24A39-F334-23F1-85FF-C9C49D94DFF2">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:55 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="DEPT_LOCATION_IX" id="2902C97C-5D64-D69C-83C6-AAAEE987CB45">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:56 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<schemaObject>F2CA2F30-5997-E193-1F48-9537CF6E4D4D</schemaObject>
+<segment>B946DA86-DF61-6C7D-2766-C254499F8757</segment>
+<tableSpace>11EBCE7E-23C5-3010-82F1-371EBCA3976C</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="DEPT_ID_PK" id="D0973759-745F-37D6-9545-5099F79A5D2C">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:56 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<schemaObject>F2CA2F30-5997-E193-1F48-9537CF6E4D4D</schemaObject>
+<segment>B946DA86-DF61-6C7D-2766-C254499F8757</segment>
+<tableSpace>11EBCE7E-23C5-3010-82F1-371EBCA3976C</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DEPT_LOC_FK" id="2DF488C1-E877-F17E-AC02-8096D0A07219">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:56 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="DEPT_MGR_FK" id="70346ED9-92C8-E1C4-3ED3-C9920FEF5E33">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:56 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="DEPT_ID_PK" id="FE3275DB-1C08-EF04-DA1B-C7B2A84A14A0">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:56 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<segment>B946DA86-DF61-6C7D-2766-C254499F8757</segment>
+<tableSpace>11EBCE7E-23C5-3010-82F1-371EBCA3976C</tableSpace>
+<existingIndex>D0973759-745F-37D6-9545-5099F79A5D2C</existingIndex>
+<indexSegment>B946DA86-DF61-6C7D-2766-C254499F8757</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

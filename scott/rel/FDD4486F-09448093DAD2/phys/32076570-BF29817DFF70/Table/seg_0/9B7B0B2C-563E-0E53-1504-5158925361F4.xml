@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="REGIONS" directorySegmentName="seg_0" id="9B7B0B2C-563E-0E53-1504-5158925361F4">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:55 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<schemaObject>F2CA2F30-5997-E193-1F48-9537CF6E4D4D</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>07DCA8C9-5B0C-5C3F-2422-98045669C246</segment>
+<tableSpace>11EBCE7E-23C5-3010-82F1-371EBCA3976C</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="REGION_ID" id="1EE12054-1DE2-3F78-BEB0-E8F6145C3F77">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:55 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REGION_NAME" id="E1BEB79E-EB60-1E59-E50F-3F8D84CDB209">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:55 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="REG_ID_PK" id="0AD95D2D-D132-91CA-EFC1-735B6A73619E">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:56 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<schemaObject>F2CA2F30-5997-E193-1F48-9537CF6E4D4D</schemaObject>
+<segment>B946DA86-DF61-6C7D-2766-C254499F8757</segment>
+<tableSpace>11EBCE7E-23C5-3010-82F1-371EBCA3976C</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="REG_ID_PK" id="68CE46EA-F6EB-3D13-AB01-B73619477DE7">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:56 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<segment>B946DA86-DF61-6C7D-2766-C254499F8757</segment>
+<tableSpace>11EBCE7E-23C5-3010-82F1-371EBCA3976C</tableSpace>
+<existingIndex>0AD95D2D-D132-91CA-EFC1-735B6A73619E</existingIndex>
+<indexSegment>B946DA86-DF61-6C7D-2766-C254499F8757</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

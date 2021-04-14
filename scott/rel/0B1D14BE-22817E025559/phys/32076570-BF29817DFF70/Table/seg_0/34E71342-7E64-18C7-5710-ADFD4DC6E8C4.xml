@@ -1,0 +1,31 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="SALGRADE" directorySegmentName="seg_0" id="34E71342-7E64-18C7-5710-ADFD4DC6E8C4">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<schemaObject>D6B2DE6D-6E66-3DEF-06A6-420FE6FDCB49</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>21F52E03-ED41-664E-2056-EBA7BF49D43A</segment>
+<tableSpace>6AAFF546-A1DB-DD33-1BBE-BDD43D071F7D</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="LOSAL" id="0F376FAB-0399-93AF-1F8A-57E547295BBE">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="HISAL" id="F3CAA66D-C924-7CC7-F683-084E45973FAE">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="GRADE" id="FFB9539D-9698-469F-BB6F-9195DD149A99">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+</TableProxyOraclev11g>

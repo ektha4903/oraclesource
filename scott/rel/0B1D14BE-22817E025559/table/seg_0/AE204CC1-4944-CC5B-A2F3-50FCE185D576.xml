@@ -1,0 +1,180 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AE204CC1-4944-CC5B-A2F3-50FCE185D576" schemaObject="D6B2DE6D-6E66-3DEF-06A6-420FE6FDCB49" name="EMP">
+<sourceConnName>scott</sourceConnName>
+<sourceObjSchema>SCOTT</sourceObjSchema>
+<sourceObjName>EMP</sourceObjName>
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="EMPNO" id="9F5896D5-9995-18F7-935E-BF64BF46150A">
+<sourceConnName>scott</sourceConnName>
+<sourceObjSchema>EMP</sourceObjSchema>
+<sourceObjName>EMPNO</sourceObjName>
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,4,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ENAME" id="65FD7B5B-EE49-4718-FCE2-8ACDAB7C6C73">
+<sourceConnName>scott</sourceConnName>
+<sourceObjSchema>EMP</sourceObjSchema>
+<sourceObjName>ENAME</sourceObjName>
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="JOB" id="D801EF57-7846-E9DF-7135-E99E4AC8D885">
+<sourceConnName>scott</sourceConnName>
+<sourceObjSchema>EMP</sourceObjSchema>
+<sourceObjName>JOB</sourceObjName>
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>9 BYTE</dataTypeSize>
+<ownDataTypeParameters>9 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MGR" id="178EE747-E006-F5A7-3197-CE26F61FF899">
+<sourceConnName>scott</sourceConnName>
+<sourceObjSchema>EMP</sourceObjSchema>
+<sourceObjName>MGR</sourceObjName>
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,4,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HIREDATE" id="A56BB734-3AD5-468C-98EA-A2AE35CE90DE">
+<sourceConnName>scott</sourceConnName>
+<sourceObjSchema>EMP</sourceObjSchema>
+<sourceObjName>HIREDATE</sourceObjName>
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SAL" id="35FE14E7-E312-7E5B-7EF5-2F84EEB513A5">
+<sourceConnName>scott</sourceConnName>
+<sourceObjSchema>EMP</sourceObjSchema>
+<sourceObjName>SAL</sourceObjName>
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,7,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="COMM" id="62DB537D-9BFE-D0E8-80BB-CB48D642CF8A">
+<sourceConnName>scott</sourceConnName>
+<sourceObjSchema>EMP</sourceObjSchema>
+<sourceObjName>COMM</sourceObjName>
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,7,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DEPTNO" id="71970F78-4978-59AE-183A-9E2C22FBBBD5">
+<sourceConnName>scott</sourceConnName>
+<sourceObjSchema>EMP</sourceObjSchema>
+<sourceObjName>DEPTNO</sourceObjName>
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,2,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="665E896D-15FF-B3CC-3161-1858E6539F76" referredColumn="75917D37-06B5-90A0-69E6-3CA584F39B7D"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1CC3A6A8-12C1-B642-31F1-E24FB2962142" name="PK_EMP">
+<sourceConnName>scott</sourceConnName>
+<sourceObjSchema>SCOTT</sourceObjSchema>
+<sourceObjName>PK_EMP</sourceObjName>
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9F5896D5-9995-18F7-935E-BF64BF46150A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F04FC2AC-1468-0214-522D-4F73ECD286C0" schemaObject="D6B2DE6D-6E66-3DEF-06A6-420FE6FDCB49" name="PK_EMP">
+<sourceConnName>scott</sourceConnName>
+<sourceObjSchema>SCOTT</sourceObjSchema>
+<sourceObjName>PK_EMP</sourceObjName>
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9F5896D5-9995-18F7-935E-BF64BF46150A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="11F86417-0CBF-412C-2420-A79CE33F3649" name="FK_DEPTNO">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:30 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="71970F78-4978-59AE-183A-9E2C22FBBBD5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

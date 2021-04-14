@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="scott.sql" id="77BDAD89-5A97-5154-7B3E-4992AF3C975B" version="3.5">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:05:54 UTC</createdTime>
+<ownerDesignName>scott.sql</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>77BDAD89-5A97-5154-7B3E-4992AF3C975B</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="1F6B70F1-3E94-BE67-F22E-C841946D98D1">
+<designStoragePath>C:\oraclesource</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

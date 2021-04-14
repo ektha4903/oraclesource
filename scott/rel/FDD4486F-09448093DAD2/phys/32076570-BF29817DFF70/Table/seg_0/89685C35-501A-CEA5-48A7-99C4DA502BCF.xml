@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="COUNTRIES" directorySegmentName="seg_0" id="89685C35-501A-CEA5-48A7-99C4DA502BCF">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:55 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<schemaObject>F2CA2F30-5997-E193-1F48-9537CF6E4D4D</schemaObject>
+<iotPctThreshold>50</iotPctThreshold>
+<logging>YES</logging>
+<organization>INDEX</organization>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>B946DA86-DF61-6C7D-2766-C254499F8757</segment>
+<tableSpace>11EBCE7E-23C5-3010-82F1-371EBCA3976C</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="COUNTRY_ID" id="05D049C3-86C5-37E9-75AE-0C4C565F75AD">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:55 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="COUNTRY_NAME" id="15C44D35-7997-B74C-2EE1-70472EC64164">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:55 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REGION_ID" id="F240705F-A27F-CA90-082D-5F480B2EA811">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:55 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="COUNTR_REG_FK" id="492DD65E-1225-6C0B-722A-91E7F87CC7A2">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:56 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="COUNTRY_C_ID_PK" id="D90BDDB8-48B9-C428-8450-C47B71699C5E">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:56 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<schemaObject>F2CA2F30-5997-E193-1F48-9537CF6E4D4D</schemaObject>
+<segment>B946DA86-DF61-6C7D-2766-C254499F8757</segment>
+<tableSpace>11EBCE7E-23C5-3010-82F1-371EBCA3976C</tableSpace>
+<indexSegment>B946DA86-DF61-6C7D-2766-C254499F8757</indexSegment>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

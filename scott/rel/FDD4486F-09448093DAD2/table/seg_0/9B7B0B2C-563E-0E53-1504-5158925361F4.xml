@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9B7B0B2C-563E-0E53-1504-5158925361F4" schemaObject="F2CA2F30-5997-E193-1F48-9537CF6E4D4D" name="REGIONS">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>REGIONS</sourceObjName>
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:55 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="REGION_ID" id="1EE12054-1DE2-3F78-BEB0-E8F6145C3F77">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>REGIONS</sourceObjSchema>
+<sourceObjName>REGION_ID</sourceObjName>
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:55 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>REGION_ID_NN</notNullConstraintName>
+</Column>
+<Column name="REGION_NAME" id="E1BEB79E-EB60-1E59-E50F-3F8D84CDB209">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>REGIONS</sourceObjSchema>
+<sourceObjName>REGION_NAME</sourceObjName>
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:55 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 BYTE</dataTypeSize>
+<ownDataTypeParameters>25 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="68CE46EA-F6EB-3D13-AB01-B73619477DE7" name="REG_ID_PK">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>REG_ID_PK</sourceObjName>
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:56 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1EE12054-1DE2-3F78-BEB0-E8F6145C3F77"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0AD95D2D-D132-91CA-EFC1-735B6A73619E" schemaObject="F2CA2F30-5997-E193-1F48-9537CF6E4D4D" name="REG_ID_PK">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>REG_ID_PK</sourceObjName>
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:56 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1EE12054-1DE2-3F78-BEB0-E8F6145C3F77"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

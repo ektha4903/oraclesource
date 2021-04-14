@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="EMP" directorySegmentName="seg_0" id="AE204CC1-4944-CC5B-A2F3-50FCE185D576">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<schemaObject>D6B2DE6D-6E66-3DEF-06A6-420FE6FDCB49</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>21F52E03-ED41-664E-2056-EBA7BF49D43A</segment>
+<tableSpace>6AAFF546-A1DB-DD33-1BBE-BDD43D071F7D</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="MGR" id="178EE747-E006-F5A7-3197-CE26F61FF899">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SAL" id="35FE14E7-E312-7E5B-7EF5-2F84EEB513A5">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="COMM" id="62DB537D-9BFE-D0E8-80BB-CB48D642CF8A">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ENAME" id="65FD7B5B-EE49-4718-FCE2-8ACDAB7C6C73">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEPTNO" id="71970F78-4978-59AE-183A-9E2C22FBBBD5">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EMPNO" id="9F5896D5-9995-18F7-935E-BF64BF46150A">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="HIREDATE" id="A56BB734-3AD5-468C-98EA-A2AE35CE90DE">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="JOB" id="D801EF57-7846-E9DF-7135-E99E4AC8D885">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_EMP" id="F04FC2AC-1468-0214-522D-4F73ECD286C0">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<schemaObject>D6B2DE6D-6E66-3DEF-06A6-420FE6FDCB49</schemaObject>
+<segment>5947EB9D-8615-6A11-059E-9D235B78DB11</segment>
+<tableSpace>6AAFF546-A1DB-DD33-1BBE-BDD43D071F7D</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_DEPTNO" id="11F86417-0CBF-412C-2420-A79CE33F3649">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:30 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_EMP" id="1CC3A6A8-12C1-B642-31F1-E24FB2962142">
+<createdBy>BSK</createdBy>
+<createdTime>2021-04-13 08:20:29 UTC</createdTime>
+<ownerDesignName>scott</ownerDesignName>
+<segment>5947EB9D-8615-6A11-059E-9D235B78DB11</segment>
+<tableSpace>6AAFF546-A1DB-DD33-1BBE-BDD43D071F7D</tableSpace>
+<existingIndex>F04FC2AC-1468-0214-522D-4F73ECD286C0</existingIndex>
+<indexSegment>5947EB9D-8615-6A11-059E-9D235B78DB11</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>
