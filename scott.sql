@@ -883,30 +883,576 @@ CREATE TABLE EMP_CONST(EMPNO NUMBER(4) CONSTRAINT EMPCONST_EMPNO_PK PRIMARY KEY,
                        JOB VARCHAR2(9),
                        TEL VARCHAR2(20) CONSTRAINT EMPCONST_TEL_UNQ UNIQUE,
                        HIREDATE DATE,
-                       SAL NUMBER(7,2)
-                       DEPTNO NUMBER(2) CONSTRAINT EMPSONST_DEPTNO_FK FOREIGN KEY);
+                       SAL NUMBER(7,2),
+                       DEPTNO NUMBER(2) CONSTRAINT EMPSONST_DEPTNO_FK REFERENCES DEPT_CONST(DEPTNO));
 --사용자 생성 - JAVADB,12345
 CREATE USER JAVADB IDENTIFIED BY 12345;
 --권한 부여 - CONNECT, RESOURCE
 GRANT CONNECT,RESOURCE TO JAVADB;
---JAVADB 안에 테이블 생성
---테이블 명 - userTBL
---NO정수형(4) PRIMARY KEY 제약조건명 pk_userTBL
---username 가변형 문자열(20) not null
---birthYear 정수형(4) not null
---addr 가변형 문자열(15) not null
---mobile 가변형 문자열(12)
-CREATE TABLE userTBL(no number(4) CONSTRAINT PK_USERTBL PRIMARY KEY,
-                     USERNAME VARCHAR2(20) NOT NULL,
-                     BIRTHYEAR NUMBER(4) NOT NULL,
-                     ADDR  VARCHAR2(15) NOT NULL,
-                     MOBILE VARCHAR2(12));
 
---시퀀스 생성하기 -user_seq
-CREATE SEQUENCE USER_SEQ;
---userTBL 안에 NO는 SEQUENCE 값으로 생성하여 테스트 데이터 5개 정도 삽입하기.
-INSERT INTO USER_SEQ VALUES(SEQ_DEPT_SEQUENCE.NEXTVAL,'홍길동',1994,'SEOUL','010-1234-5678');
-INSERT INTO USER_SEQ VALUES(SEQ_DEPT_SEQUENCE.NEXTVAL,'박길동',1993,'BUSAN','010-1234-5671');
-INSERT INTO USER_SEQ VALUES(SEQ_DEPT_SEQUENCE.NEXTVAL,'최길동',1992,'SEOUL','010-1234-5672');
-INSERT INTO USER_SEQ VALUES(SEQ_DEPT_SEQUENCE.NEXTVAL,'김길동',1996,'ULSAN','010-1234-5673');
-INSERT INTO USER_SEQ VALUES(SEQ_DEPT_SEQUENCE.NEXTVAL,'주길동',1994,'YEOSU','010-1234-5674');
+
+--PL/SQL
+ --화면출력
+SET SERVEROUTPUT ON;
+BEGIN DBMS_OUTPUT.PUT_LINE('HELLO, PL/SQL');
+END;
+/
+
+--변수와 사용
+DECLARE V_EMPNO NUMBER(4) :=7788;
+        V_ENAME VARCHAR2(10);
+BEGIN V_ENAME := 'SCOTT';
+      DBMS_OUTPUT.PUT_LINE('V_EMPNO : '||v_empno);
+      DBMS_OUTPUT.PUT_LINE('V_EMPNO : '||v_ename);
+END;
+/
+
+--상수 선언하기
+DECLARE
+    V_TAX CONSTANT NUMBER(1) := 3;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('V_TAX : '||V_TAX);
+END;
+/
+
+--변수의 기본값 지정
+DECLARE 
+    V_DEPTNO NUMBER(4) DEFAULT 10;
+BEGIN 
+    DBMS_OUTPUT.PUT_LINE('V_DEPTNO : '||V_DEPTNO);
+END;
+/
+
+--NULL 값 막기 + DEFAULT
+DECLARE
+    V_DEPTNO NUMBER(4) NOT NULL DEFAULT 10;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('V_DEPTNO : '||V_DEPTNO);
+END;
+/
+
+--특정 테이블에서 행 구조 참조하기
+DECLARE
+    V_DEPT_ROW DEPT%ROWTYPE;
+BEGIN
+    SELECT DEPTNO,DNAME,LOC INTO V_DEPT_ROW FROM DEPT WHERE DEPTNO=40;
+    DBMS_OUTPUT.PUT_LINE('DEPTNO : '||V_DEPT_ROW.DEPTNO);
+    DBMS_OUTPUT.PUT_LINE('DNAME : '||V_DEPT_ROW.DNAME);
+    DBMS_OUTPUT.PUT_LINE('LOC : '||V_DEPT_ROW.LOC);
+END;
+/
+
+--특정 테이블의 컬럼 값 참조하기
+DECLARE
+    V_DEPTNO DEPT.DEPTNO%TYPE :=50;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('DEPTNO : '||V_DEPTNO);
+END;
+/
+
+--조건문
+DECLARE
+    V_NUMBER NUMBER := 13;
+BEGIN
+    IF MOD(V_NUMBER,2) = 1 THEN
+        DBMS_OUTPUT.PUT_LINE('홀수');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('짝수');
+    END IF;
+END;
+/
+
+DECLARE
+    V_NUMBER NUMBER := 87;
+BEGIN
+    IF V_NUMBER >=90 THEN
+        DBMS_OUTPUT.PUT_LINE('A 학점');
+    ELSE V_NUMBER >=80 THEN
+        DBMS_OUTPUT.PUT_LINE('B 학점');
+    ELSE V_NUMBER >=70 THEN
+        DBMS_OUTPUT.PUT_LINE('C 학점');
+    ELSE V_NUMBER >=60 THEN
+        DBMS_OUTPUT.PUT_LINE('D 학점');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('F 학점');
+    END IF;
+END;
+/
+
+DECLARE
+    V_NUMBER NUMBER := 87;
+BEGIN
+    CASE TRUNC(V_NUMBER/10)
+    WHEN 10 THEN DBMS_OUTPUT.PUT_LINE('A 학점');
+    WHEN 9 THEN DBMS_OUTPUT.PUT_LINE('B 학점');
+    WHEN 8 THEN DBMS_OUTPUT.PUT_LINE('C 학점');
+    WHEN 7 THEN DBMS_OUTPUT.PUT_LINE('D 학점');
+    ELSE DBMS_OUTPUT.PUT_LINE('F 학점');
+    END CASE;
+END;
+/
+
+--반복문
+DECLARE
+    V_NUM NUMBER:=0;
+BEGIN
+    LOOP
+        DBMS_OUTPUT.PUT_LINE('현재 V_NUM :' ||V_NUM);
+        V_NUM := V_NUM+1;
+        EXIT WHEN V_NUM > 4;
+    END LOOP;
+END;
+/
+
+DECLARE
+    V_NUM NUMBER:=0;
+BEGIN
+    WHILE V_NUM<4 LOOP
+        DBMS_OUTPUT.PUT_LINE('현재 V_NUM :' ||V_NUM);
+        V_NUM := V_NUM+1;
+    END LOOP;
+END;
+/
+DECLARE
+    V_NUM NUMBER:=0;
+BEGIN
+    FOR i IN 0..4 LOOP
+        DBMS_OUTPUT.PUT_LINE('현재 i :' ||i);
+    END LOOP;
+END;
+/
+
+--1~100까지 합(for)
+DECLARE
+    V_SUM NUMBER:=0;
+BEGIN
+    FOR i IN 1..100 LOOP
+        V_SUM := V_SUM+i;
+    END LOOP;
+    DBMS_OUTPUT.PUT_LINE('현재 V_SUM : '||V_SUM);
+END;
+/
+
+DECLARE
+    V_NUM NUMBER:=0;
+BEGIN
+    FOR i IN 0..10 LOOP
+        CONTINUE WHEN MOD(i,2) = 1;
+        DBMS_OUTPUT.PUT_LINE('현재 i :' ||i);
+    END LOOP;
+END;
+/
+--홀수만 출력
+DECLARE
+    V_NUM NUMBER:=0;
+BEGIN
+    FOR i IN 0..10 LOOP
+        CONTINUE WHEN MOD(i,2) = 0;
+        DBMS_OUTPUT.PUT_LINE('현재 i :' ||i);
+    END LOOP;
+END;
+/
+
+--레코드 : 자료형이 다른 여러 데이터를 저장
+DECLARE
+    TYPE REC_DEPT IS RECORD(
+        DEPTNO NUMBER(2) NOT NULL :=99;
+        DNAME VARCHAR2(12),
+        LOC VARCHAR2(20));
+    dept_rec REC_DEPT;
+BEGIN
+    DEPT_REC.DEPTNO := 55;
+    DEPT_REC.DNAME := 'DATABASE';
+    DEPT_REC.LOC := 'SEOUL';
+    DBMS_OUTPUT.PUT_LINE('DEPTNO : '||DEPT_REC.DEPTNO);
+    DBMS_OUTPUT.PUT_LINE('DNAME : '||DEPT_REC.DNAME);
+    DBMS_OUTPUT.PUT_LINE('LOC : '||DEPT_REC.LOC);
+END;
+/
+GRANT SELECT ON DEPT TO JAVADB;
+--레코드를 사용한 insert
+CREATE TABLE DEPT_RECORD AS SELECT * FROM DEPT;
+
+
+--커서 : select문 또는 데이터 조직어 같은 sql문 실행시 해당 sql문을 처리하는 정보를 저장한 메모리 공간을 가리키는 포인터
+--명시적 커서/ 묵시적 커서
+DECLARE
+    V_DEPT_ROW DEPT%ROWTYPE;
+    CURSOR C1 IS
+        SELECT DEPTNO,DNAME,LOC
+        FROM DEPT
+        WHERE DEPTNO=4O;
+BEGIN
+    OPEN C1;
+    FETCH C1 INTO V_DEPT_ROW;
+    DBMS_OUTPUT.PUT_LINE('DEPTNO : '||V_DEPT_ROW.DEPTNO);
+    DBMS_OUTPUT.PUT_LINE('DNAME : '||V_DEPT_ROW.DNAME);
+    DBMS_OUTPUT.PUT_LINE('LOC : '||V_DEPT_ROW.LOC);
+    CLOSE C1;
+END;
+/
+
+DECLARE
+    CURSOR c1 IS
+        SELECT DEPTNO,DNAME,LOC
+        FROM SCOTT.DEPT;
+BEGIN
+    FOR c1_REC IN c1 LOOP
+    DBMS_OUTPUT.PUT_LINE('DEPTNO : '||V_DEPT_ROW.DEPTNO);
+    DBMS_OUTPUT.PUT_LINE('DNAME : '||V_DEPT_ROW.DNAME);
+    DBMS_OUTPUT.PUT_LINE('LOC : '||V_DEPT_ROW.LOC);
+    END LOOP;
+END;
+/
+DECLARE
+    -- 특정 테이블에서 행 구조 참조하기
+    V_DEPT_ROW SCOTT.DEPT%ROWTYPE;
+    
+    -- 명시적 커서 선언
+    CURSOR c1 IS
+        SELECT DEPTNO,DNAME,LOC
+        FROM SCOTT.DEPT;
+BEGIN 
+    -- 커서 열기
+    OPEN c1;
+    
+    LOOP
+        -- 커서를 통해 읽어온 데이터 사용
+        FETCH c1 INTO v_dept_row;
+        
+    
+        EXIT WHEN c1%NOTFOUND;    
+    
+        DBMS_OUTPUT.PUT_LINE('deptno :'||V_DEPT_ROW.deptno);          
+        DBMS_OUTPUT.PUT_LINE('dname :'||V_DEPT_ROW.dname); 
+        DBMS_OUTPUT.PUT_LINE('loc :'||V_DEPT_ROW.loc);  
+    END LOOP;
+    
+    -- 커서 닫기
+    CLOSE c1;
+    
+END;
+/
+
+
+
+
+DECLARE  
+    -- 명시적 커서 선언
+    CURSOR c1 IS
+        SELECT DEPTNO,DNAME,LOC
+        FROM SCOTT.DEPT;
+BEGIN         
+    -- 커서 loop 시작(open,fetch,close 자동)    
+    FOR c1_rec IN c1 Loop    
+        DBMS_OUTPUT.PUT_LINE('deptno :'||c1_rec.deptno);          
+        DBMS_OUTPUT.PUT_LINE('dname :'||c1_rec.dname); 
+        DBMS_OUTPUT.PUT_LINE('loc :'||c1_rec.loc);  
+    END LOOP;     
+END;
+/
+
+
+DECLARE
+    -- 특정 테이블에서 행 구조 참조하기
+    V_DEPT_ROW SCOTT.DEPT%ROWTYPE;
+    
+    -- 명시적 커서 선언
+    CURSOR c1 (p_deptno scott.dept.deptno%TYPE) IS
+        SELECT DEPTNO,DNAME,LOC
+        FROM SCOTT.DEPT
+        WHERE deptno=p_deptno;
+BEGIN 
+    -- 커서 열기
+    OPEN c1(10);
+    
+    LOOP
+        -- 커서를 통해 읽어온 데이터 사용
+        FETCH c1 INTO v_dept_row;
+        
+    
+        EXIT WHEN c1%NOTFOUND;    
+    
+        DBMS_OUTPUT.PUT_LINE('deptno :'||V_DEPT_ROW.deptno);          
+        DBMS_OUTPUT.PUT_LINE('dname :'||V_DEPT_ROW.dname); 
+        DBMS_OUTPUT.PUT_LINE('loc :'||V_DEPT_ROW.loc);  
+    END LOOP;
+    
+    -- 커서 닫기
+    CLOSE c1;
+    
+    
+    -- 커서 열기
+    OPEN c1(20);
+    
+    LOOP
+        -- 커서를 통해 읽어온 데이터 사용
+        FETCH c1 INTO v_dept_row;
+        
+    
+        EXIT WHEN c1%NOTFOUND;    
+    
+        DBMS_OUTPUT.PUT_LINE('deptno :'||V_DEPT_ROW.deptno);          
+        DBMS_OUTPUT.PUT_LINE('dname :'||V_DEPT_ROW.dname); 
+        DBMS_OUTPUT.PUT_LINE('loc :'||V_DEPT_ROW.loc);  
+    END LOOP;
+    
+    -- 커서 닫기
+    CLOSE c1;
+    
+END;
+/
+
+
+DECLARE
+    -- 테이블에서 특정 컬럼 구조 참조하기
+    v_deptno SCOTT.DEPT.deptno%TYPE;    
+    -- 명시적 커서 선언
+    CURSOR c1 (p_deptno scott.dept.deptno%TYPE) IS
+        SELECT DEPTNO,DNAME,LOC
+        FROM SCOTT.DEPT
+        WHERE deptno=p_deptno;
+BEGIN 
+    v_deptno := &INPUT_DEPTNO;
+
+    FOR c1_rec IN c1(v_deptno)
+    
+    LOOP           
+        DBMS_OUTPUT.PUT_LINE('deptno :'||c1_rec.deptno);          
+        DBMS_OUTPUT.PUT_LINE('dname :'||c1_rec.dname); 
+        DBMS_OUTPUT.PUT_LINE('loc :'||c1_rec.loc);  
+    END LOOP;  
+END;
+/
+
+-- 묵시적 커서 : DML, SELECT INTO
+-- SQL%FOUND(묵시적 커서가 추출한 행이 있는 경우 TRUE)
+-- SQL%NOTFOUND(묵시적 커서가 추출한 행이 있는 경우 FALSE)
+-- SQL%ISOPEN(묵시적 커서는 자동으로 SQL 문 실행 후 닫기 때문에 항상 FALSE)
+-- SQL%ROWCOUNT(묵시적 커서에 현재까지 추출한 행 수 혹은 DML 영향 받은 행수)
+
+BEGIN
+    UPDATE userTBL set addr='전라도'
+    WHERE no = 2;
+    
+    DBMS_OUTPUT.PUT_LINE('갱신된 행의 수 :'|| SQL%ROWCOUNT);
+    
+    IF(SQL%FOUND) THEN
+        DBMS_OUTPUT.PUT_LINE('갱신된 행의 존재 여부 : TRUE');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('갱신된 행의 존재 여부 : FALSE');
+    END IF;
+    
+    IF(SQL%ISOPEN) THEN
+        DBMS_OUTPUT.PUT_LINE('커서의 오픈 여부 : TRUE');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('커서의 오픈 여부 : FALSE');
+    END IF;
+    
+END;
+/
+
+--오류 - 컴파일 에러(문법 오류) / 런타임 에러 
+--PL/SQL: numeric or value error: character to number conversion error
+DECLARE
+    V_WRONG NUMBER;
+BEGIN
+    SELECT DNAME INTO V_WRONG
+    FROM DEPT
+    WHERE DEPTNO=10;
+    DBMS_OUTPUT.PUT_LINE('예외 발생시 이 문장은 실행 되지 않음'); --위에서 에러가 났기때문에 이 문자은 출력X
+EXCEPTION
+    WHEN VALUE_ERROR THEN 
+        DBMS_OUTPUT.PUT_LINE('예외 처리 : 수치 또는 값 오류 발생');
+END;
+/
+--여러개의 예외 처리
+DECLARE
+    V_WRONG NUMBER;
+BEGIN
+    SELECT DNAME INTO V_WRONG
+    FROM DEPT
+    WHERE DEPTNO=10;
+        DBMS_OUTPUT.PUT_LINE('예외 발생시 이 문장은 실행 되지 않음'); --위에서 에러가 났기때문에 이 문자은 출력X
+EXCEPTION
+    WHEN TOO_MANY_ROWS THEN 
+        DBMS_OUTPUT.PUT_LINE('예외 처리 : 요구보다 많은 행 추출 오류');
+    WHEN VALUE_ERROR THEN 
+        DBMS_OUTPUT.PUT_LINE('예외 처리 : 수치 또는 값 오류 발생');
+    WHEN OTHERS THEN 
+        DBMS_OUTPUT.PUT_LINE('예외 처리 : 사전 정의 외 오류 발생');
+END;
+/
+DECLARE
+    V_WRONG NUMBER;
+BEGIN
+    SELECT DNAME INTO V_WRONG
+    FROM DEPT
+    WHERE DEPTNO=10;
+        DBMS_OUTPUT.PUT_LINE('예외 발생시 이 문장은 실행 되지 않음'); --위에서 에러가 났기때문에 이 문자은 출력X
+EXCEPTION
+    WHEN OTHERS THEN 
+        DBMS_OUTPUT.PUT_LINE('예외 처리 : 사전 정의 외 오류 발생');
+        DBMS_OUTPUT.PUT_LINE('SQLCODE : '||TO_CHAR(SQLCODE)); --SQLCODE 번호로 알려달라
+        DBMS_OUTPUT.PUT_LINE('SQLERRM : '||SQLERRM); --SQL ERROR MESSAGE
+END;
+/
+
+--저장 서브 프로그램 : 오라클 내에 저장해서 필요할 때(다른 응용프로그램에서도) 호출가능
+--1) 저장 프로시저
+CREATE PROCEDURE PRO_NOPARAM IS V_EMPNO NUMBER(4):=7788;
+                                 V_ENAME VARCHAR2(10);
+                            BEGIN
+                                V_ENAME :='SCOTT';
+                                DBMS_OUTPUT.PUT_LINE('V_EMPNO :'||V_EMPNO);
+                                DBMS_OUTPUT.PUT_LINE('V_ENAME :'||V_ENAME);
+                            END;
+                            /
+
+--프로시저 실행
+EXECUTE pro_noparam;
+/
+
+--동일한 프로시저가 존재하는 경우 현재 작성한 내용으로 대체
+CREATE OR REPLACE PROCEDURE PRO_NOPARAM IS V_EMPNO NUMBER(4):=7788;
+                                 V_ENAME VARCHAR2(10);
+                            BEGIN
+                                V_ENAME :='SCOTT';
+                                DBMS_OUTPUT.PUT_LINE('V_EMPNO :'||V_EMPNO);
+                                DBMS_OUTPUT.PUT_LINE('V_ENAME :'||V_ENAME);
+                            END;
+                            /
+
+--다른 PL/SQL 블록에서 실행
+BEGIN pro_noparam;
+END;
+/
+--파라미터 처리 (IN : 받아서)
+CREATE OR REPLACE PROCEDURE PRO_NOPARAM_IN 
+    (PARAM1 IN NUMBER,  --IN은 DEFAULT => 생략가능
+     PARAM2 NUMBER,
+     PARAM3 NUMBER:=3,
+     PARAM4 NUMBER DEFAULT 4)
+IS
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('PARAM1 :'||PARAM1);
+    DBMS_OUTPUT.PUT_LINE('PARAM2 :'||PARAM2);
+    DBMS_OUTPUT.PUT_LINE('PARAM3 :'||PARAM3);
+    DBMS_OUTPUT.PUT_LINE('PARAM4 :'||PARAM4);
+END;
+ /
+ 
+EXECUTE PRO_NOPARAM_IN(1,2,9,8);
+EXECUTE PRO_NOPARAM_IN(1,2);
+EXECUTE PRO_NOPARAM_IN(1);
+
+GRANT SELECT ON EMP TO JAVADB;
+
+--파라미터 처리 (OUT:리턴)
+CREATE OR REPLACE PROCEDURE PRO_NOPARAM_OUT 
+    (IN_EMPNO IN EMP.EMPNO%TYPE,
+    OUT_ENAME OUT EMP.ENAME%TYPE, --OUT(프로시저 실행 후 호출한 프로그램으로 값 반환)
+    OUT_SAL OUT EMP.SAL%TYPE)
+IS
+BEGIN
+   SELECT ENAME,SAL INTO OUT_ENAME,OUT_SAL
+   FROM EMP
+   WHERE EMPNO=IN_EMPNO;
+END;
+ /
+ 
+DECLARE
+    V_ENAME EMP.ENAME%TYPE;
+    V_SAL EMP.SAL%TYPE;
+BEGIN
+    PRO_NOPARAM_OUT(7782,V_ENAME,V_SAL);
+    DBMS_OUTPUT.PUT_LINE('ENAME :'||V_ENAME);
+    DBMS_OUTPUT.PUT_LINE('SAL :'||V_SAL);
+END;
+/
+
+--IN/OUT
+CREATE OR REPLACE PROCEDURE PRO_NOPARAM_INOUT 
+    (IN_OUT_NO IN OUT NUMBER )
+IS
+BEGIN
+    IN_OUT_NO:=IN_OUT_NO*2;
+END;
+/
+
+DECLARE NO NUMBER;
+BEGIN NO:=5;
+      PRO_NOPARAM_INOUT(NO);
+      DBMS_OUTPUT.PUT_LINE('NO : '||NO);
+END;
+/
+create OR REPLACE PROCEDURE pro_dept_in
+    (inout_deptno in out dept.deptno%type,
+     out_dname out dept.dname%type,
+     out_loc out dept.loc%type
+    )
+is
+begin
+    select deptno,dname,loc into inout_deptno,out_dname,out_loc
+    from dept where deptno=inout_deptno;
+end;
+/
+declare 
+    v_deptno dept.deptno%type;
+    v_dname dept.dname%type;
+    v_loc dept.loc%type;
+begin
+    v_deptno := 10;
+    pro_dept_in(v_deptno,v_dname,v_loc);
+    dbms_output.put_line('부서번호 : '||v_deptno);
+    dbms_output.put_line('부서명 : '||v_dname);
+    dbms_output.put_line('지역 : '||v_loc);
+end;
+/
+
+--trigger트리거 : 데이터베이스 안의 특정 상황이나 동작, 즉 이벤트가 발생할 경우 자동으로 실행되는 기능
+--데이터와 연관된 여러 작업을 수행하기 위해 여러 pl/sql문 또는 저장 프로시저를 일일이 수행하지 않아도 됨
+--여러 사용자가 공유하는 데이터 보안성과 안정성 추구
+--트리거 사용 구문 : DML,DDL,데이터베이스 동작과 관련된 구문
+CREATE TABLE EMP_TRG AS SELECT * FROM EMP;
+SELECT * FROM EMP_TRG;
+--DML 트리거
+CREATE OR REPLACE TRIGGER TRG_EMP_NODML_WEEKEND 
+BEFORE  --AFTER(트리거 동작 시점)
+INSERT OR UPDATE OR DELETE ON EMP_TRG
+BEGIN
+    IF TO_CHAR(SYSDATE,'DY') IN ('토','일') THEN 
+        IF INSERTING THEN RAISE_APPLICATION_ERROR(-20000,'주말 사원정보 추가 불가');
+        ELSIF UPDATING THEN RAISE_APPLICATION_ERROR(-20001,'주말 사원정보 수정 불가');
+        ELSIF DELETING THEN RAISE_APPLICATION_ERROR(-20002,'주말 사원정보 삭제 불가');
+        ELSE RAISE_APPLICATION_ERROR(-20003,'주말 사원정보 변경 불가');
+        END IF;
+    END IF;
+END;
+/
+
+UPDATE EMP_TRG SET SAL=3000 WHERE EMPNO=7782;
+INSERT INTO EMP_TRG VALUES(9000,'TEST','MANAGER',NULL,SYSDATE,NULL,NULL,10);
+/
+--로그 기록 테이블
+SELECT * FROM EMP_TRG_LOG;
+
+CREATE TABLE EMP_TRG_LOG(
+    TABLENAME VARCHAR2(10), --DML작업이 수행된 테이블 명
+    DML_TYPE VARCHAR2(10),  --DML명령어의 종류
+    EMPNO NUMBER(4),        --DML대상이 된 사원번호
+    USER_NAME VARCHAR2(30), --DLM을 수행한 USER명
+    CHANGE_DATE DATE);      --DML이 수행된 날짜
+    
+
+CREATE OR REPLACE TRIGGER TRG_EMP_LOG
+AFTER  --AFTER(트리거 동작 시점)
+INSERT OR UPDATE OR DELETE ON EMP_TRG
+FOR EACH ROW 
+BEGIN
+    IF INSERTING THEN INSERT INTO EMP_TRG_LOG VALUES('EMP_TRG','INSERT',:NEW.EMPNO,SYS_CONTEXT ('USERENV', 'SESSION_USER'),SYSDATE);
+    ELSIF UPDATING THEN INSERT INTO EMP_TRG_LOG VALUES('EMP_TRG','UPDATE',:OLD.EMPNO,SYS_CONTEXT ('USERENV', 'SESSION_USER'),SYSDATE);
+    ELSIF DELETING THEN INSERT INTO EMP_TRG_LOG VALUES('EMP_TRG','DELETE',:OLD.EMPNO,SYS_CONTEXT ('USERENV', 'SESSION_USER'),SYSDATE);
+    END IF;
+END;
+/
